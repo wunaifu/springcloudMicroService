@@ -17,7 +17,7 @@ import org.springframework.web.client.RestTemplate;
 public class ConfigBean //boot -->spring   applicationContext.xml --- @Configuration配置   ConfigBean = applicationContext.xml
 {
     @Bean
-    //@LoadBalanced//Spring Cloud Ribbon是基于Netflix Ribbon实现的一套客户端       负载均衡的工具。
+    @LoadBalanced//Spring Cloud Ribbon是基于Netflix Ribbon实现的一套客户端负载均衡的工具。
     //RestTemplate提供了多种便捷访问远程http服务的方法，
     //是一种简单便捷的访问restful服务模版类，是spring提供的用于访问Rest服务的客户端模版工具集
     public RestTemplate getRestTemplate() {
