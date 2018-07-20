@@ -1,7 +1,9 @@
 package com.wnf.springcloud.cfgbeans;
 
 import com.netflix.loadbalancer.IRule;
+import com.netflix.loadbalancer.RandomRule;
 import com.netflix.loadbalancer.RetryRule;
+import com.netflix.loadbalancer.RoundRobinRule;
 import org.springframework.cloud.client.loadbalancer.LoadBalanced;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -24,13 +26,13 @@ public class ConfigBean //boot -->spring   applicationContext.xml --- @Configura
         return new RestTemplate();
     }
 
-//    @Bean
-//    public IRule myRule()
-//    {
-//        //return new RoundRobinRule();
-//        //return new RandomRule();//达到的目的，用我们重新选择的随机算法替代默认的轮询。
-//        return new RetryRule();
-//    }
+    @Bean
+    public IRule myRule()
+    {
+//        return new RoundRobinRule();//轮询。
+//        return new RandomRule();//达到的目的，用我们重新选择的随机算法替代默认的轮询。
+        return new RetryRule();//重试
+    }
 }
 
 
